@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+            transition: background-color .5s;
+        }
+        
+        .nav {
+            display: block!important;
+            z-index: 5;
+            position: fixed;
+        }
+        
+        .nav a {
+            /* border: 1px solid rgb(177, 48, 48); */
+            width: 150px;
+            border-left: none;
+            border-right: none;
+            margin-bottom: -2px;
+        }
+        
+        .nav a:hover {
+            background-color: white;
+            color: black!important;
+        }
+        
+        .closebtn {
+            height: 15px;
+            margin-bottom: 3px;
+            border: none!important;
+        }
+        /* line */
+        /* #ply {
+            border-bottom: 2px solid white;
+        } */
+        /* line */
+        
+        .sidenav {
+            display: block;
+            z-index: 5!important;
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #13536f;
+            overflow-x: hidden;
+            transition: 0.5s;
+            /* padding-top: 60px; */
+        }
+        
+        .sidenav a {
+            /* height: 20px; */
+            padding: 8px 8px 8px 34px;
+            text-decoration: none!important;
+            font-size: 16px!important;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+        
+        .sidenav a:hover {
+            /* cls  */
+            color: #fff;
+            font-family: "ubuntu";
+            font-family: "Josefin Sans", sans-serif;
+            background: linear-gradient(to right, #e72a3a 10%, #fff 50%, #5bdaff 60%);
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            color: #fff;
+            background-clip: text;
+            /* text-fill-color: transparent; */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 1.5s linear infinite;
+            display: inline-block;
+            /* cls  */
+            color: #f1f1f1;
+        }
+        
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+        
+        .btn {
+            float: right;
+        }
+        
+        #main {
+            height: 59px;
+            /* margin-left: 217px!important; */
+            background-color: #13536f!important;
+            z-index: 5;
+            /* position: fixed; */
+            transition: margin-left .5s;
+            padding: 5px;
+        }
+        
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                z-index: 5!important;
+                padding-top: 15px;
+            }
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+        
+        @media screen and (max-width: 1300px) {
+            #h5 {
+                display: none!important;
+            }
+            .btn {
+                display: none;
+            }
+        }
+        /* clr change */
+        
+        .caat {
+            color: #fff;
+            /* font-size: 92px; */
+            font-family: "ubuntu";
+            /* text-transform: uppercase; */
+            /* font-weight: 700; */
+            font-family: "Josefin Sans", sans-serif;
+            background: linear-gradient(to right, #e72a3a 10%, #fff 50%, #5bdaff 60%);
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            color: #fff;
+            background-clip: text;
+            /* text-fill-color: transparent; */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 1.5s linear infinite;
+            display: inline-block;
+        }
+        /* clr change */
+        /* bounce */
+        
+        @-webkit-keyframes bounceLeft {
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                -webkit-transform: translateX(0);
+                transform: translateX(0);
+            }
+            40% {
+                -webkit-transform: translateX(30px);
+                transform: translateX(30px);
+            }
+            60% {
+                -webkit-transform: translateX(15px);
+                transform: translateX(15px);
+            }
+        }
+        
+        @-moz-keyframes bounceLeft {
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateX(0);
+            }
+            40% {
+                transform: translateX(30px);
+            }
+            60% {
+                transform: translateX(15px);
+            }
+        }
+        
+        @keyframes bounceLeft {
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                -ms-transform: translateX(0);
+                transform: translateX(0);
+            }
+            40% {
+                -ms-transform: translateX(500px);
+                transform: translateX(500px);
+            }
+            60% {
+                -ms-transform: translateX(15px);
+                transform: translateX(15px);
+            }
+        }
+        
+        .fa-space-shuttle {
+            -webkit-animation: bounceLeft 2s infinite;
+            animation: bounceLeft 2s infinite;
+            /* for clr */
+            color: #31b56c;
+            /* font-size: 92px; */
+            font-family: "ubuntu";
+            /* text-transform: uppercase; */
+            /* font-weight: 700; */
+            /* background: linear-gradient(to right, #e72a3a 10%, #fff 50%, #5bdaff 60%); */
+            /* for clr */
+        }
+        /* /left bounce */
+    </style>
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="mySidenav" class="sidenav nav">
+        <a href="javascript:void(0)" class="closebtn" onmousemove="closeNav()">&times;</a>
+        <h2 style="color: white; margin-top: 50px; margin-left: 15px;" class="caat">SNOWY </h2>
+        <h4 style="color: white; " class="caat">COMMUNITY </h4>
+        <hr style="background-color: white; ">
+
+        <a href="/Home" class="cls">Home</a>
+        <a href="/News">News</a>
+        <a href="/About">About</a>
+        <a href="/Registration">Registration</a>
+        <a href="/Players" id="ply">Players</a>
+        <hr style="background-color: white; ">
+        <!-- <a href="/Gallery">Gallery</a>
+        <a href="/Client">Client</a>
+        <a href="#">Contact</a>
+        <a href="/Blog">Blog</a> -->
+
+
+    </div>
+    <div id="main" style="border-bottom: 1px solid black; ">
+
+        <!-- <h5 id="h5">Snowy Community often takes the form of organized, multiplayer video game competitions, particularly between professional players, individually or as teams.</h5> -->
+
+
+        <span id="span" style="font-size:30px;cursor:pointer" onmousemove="openNav()">&#9776; </span>
+        <!-- <i class="fa fa-arrow-left"></i> -->
+        <i class="fa fa-space-shuttle fa-2x "></i>
+
+    </div>
+
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "150px";
+            document.getElementById("main").style.marginLeft = "150px";
+            document.getElementById("span").style.width = "15px";
+            // document.getElementById("h5").style.marginLeft = "150px";
+            document.getElementById("main").style.backgroundColor = "black";
+            document.getElementById("h5").style.Color = "black";
+            document.getElementById("span").style.display = "none";
+
+            document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+            document.getElementById("h5").style.marginLeft = "20px";
+            // document.getElementById("ply").style.display = "none"
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.getElementById("main").style.backgroundColor = "gray";
+            document.getElementById("h5").style.color = "white";
+            document.getElementById("span").style.display = "block";
+            document.body.style.backgroundColor = "black";
+            document.getElementById("h5").style.marginLeft = "0";
+            document.getElementById("pre").style.display = "flex";
+
+
+        }
+
+
+
+        // function myFunction() {
+        //     var txt;
+        //     var person = prompt("Please enter your name:", "Harry Potter");
+        //     if (person == null || person == "") {
+        //         txt = "User cancelled the prompt.";
+        //     } else {
+        //         txt = "Hello " + person + "! How are you today?";
+        //     }
+        //     document.getElementById("demo").innerHTML = txt;
+        // }
+    </script>
+    <!-- <script>
+        const changeColor = document.getElementById('changeColor'),
+            colors = ['red', 'green', 'blue'];
+        let colorIndex = 0;
+
+        changeColor.addEventListener('click', () => {
+            document.body.style.backgroundColor = colors[colorIndex];
+            colorIndex = (colorIndex + 1) % colors.length
+        });
+    </script> -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    {% block body%} {%endblock body%}
+</body>
+
+</html>

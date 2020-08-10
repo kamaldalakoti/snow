@@ -1,0 +1,218 @@
+<style>
+    .sec {
+        display: flex;
+        /* border: 2px solid white; */
+        /* margin-top: 50px;*/
+        margin-top: -10px;
+    }
+    
+    .div1 {
+        flex-direction: column;
+        border: 2px solid blue;
+    }
+    
+    .div2 {
+        flex-direction: column;
+        border: 2px solid blue;
+    }
+    
+    * {
+        box-sizing: border-box;
+    }
+    
+    .column2 {
+        /* float: left; */
+        width: 100%!important;
+        /* height: 300px; */
+        /* Should be removed. Only for demonstration */
+    }
+    /* Clear floats after the columns */
+    
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    /* casroll */
+    
+    .arro {
+        position: absolute;
+        z-index: 2;
+        border: 2px solid black;
+        border-radius: 40px;
+        padding: 3px;
+        width: 50px!important;
+        height: 50px;
+        background-color: black;
+        margin: 0px 10px;
+        margin-top: 250px;
+    }
+    /* .div_item1 {
+        top: 116px;
+    } */
+    
+    .div_item1 {
+        z-index: 3;
+        background-color: white;
+        /* top: 116px; */
+        position: relative;
+        margin: 0px 0%;
+        width: auto;
+        height: 500px;
+        border: 1px solid black;
+    }
+    
+    .car {
+        background-position: center;
+        /* margin: 0px 30%; */
+        /* margin-left: 10px; */
+        /* border: 2px solid red; */
+        width: auto;
+        height: 600px;
+    }
+    
+    .car img {
+        /* border: 2px solid yellow; */
+        /* width: 400px; */
+        height: 600px;
+        /* image-resolution: 300px 400px; */
+    }
+    
+    @media screen and (max-width: 425px) {
+        .div_item1 {
+            display: none;
+        }
+    }
+    
+    @media screen and (max-width: 396px) {
+        .sec {
+            display: block;
+        }
+        .column1 {
+            width: 100%!important;
+        }
+        .column2 {
+            width: 100%!important;
+        }
+    }
+    /* casroll end */
+    
+    @keyframes blink {
+        0% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    
+    .img {
+        animation: blink 2s;
+        animation-iteration-count: infinite;
+    }
+    
+    .aa {
+        animation: blink .5s;
+        animation-iteration-count: infinite;
+    }
+    
+    .sec1 {
+        padding: 20px;
+        background-image: url("https://wallpapercave.com/wp/wp3276869.jpg ");
+        /* background-color: cadetblue; */
+    }
+    /* high light */
+    
+    .list-group a {
+        color: wheat;
+        background-color: #13536f;
+    }
+    
+    .list-group a:hover {
+        color: aqua;
+        background-color: rgb(60, 132, 134);
+    }
+    
+    .pera p {
+        color: wheat;
+    }
+    /* high light */
+</style>
+{% extends "base.html" %} {% block title %}Home{% endblock title %} {% block body %}
+
+<section class="text-gray-700 body-font sec">
+
+
+
+
+    <div class=" column2 ">
+
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://wallpapercave.com/wp/wp2208679.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://wallpapercave.com/wp/wp2382721.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://wallpapercave.com/wp/wp2362912.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+
+    </div>
+
+</section>
+<section class="sec1">
+    <!-- <div id="list-example" class="list-group">
+        <a class="list-group-item list-group-item-action" href="#list-item-1">Item 1</a>
+        <a class="list-group-item list-group-item-action" href="#list-item-2">Item 2</a>
+        <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
+        <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a>
+    </div> -->
+    <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example pera">
+        <h4 id="list-item-1">1</h4>
+        <p>Snowy community is an organization who organize online pubg mobile tournaments.</p>
+        <h4 id="list-item-2">2</h4>
+        <p>The information is used strictly for collecting registration information and contacting players. The tournament team guarantees that confidential information will be securely stored.
+            <blink><a href="/Registration" class="aa" style="color: aqua; text-decoration: none;">Click Here</a></blink>
+        </p>
+        <h4 id="list-item-3">3</h4>
+        <p>
+            Players must be 16 years old or more. All members in the roster must be level 20 or above, with at least Platinum V in ranked.
+        </p>
+        <h4 id="list-item-4">4</h4>
+        <p>For further information you can visit about section....
+            <a href="/About" class="aa" style="color: aqua; text-decoration: none;">
+                <blink>Click Here</blink>
+            </a>
+        </p>
+    </div>
+    <div id="carouselExampleSlidesOnly" style="margin-top: 10px;" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <blink> <img src="https://wallpapercave.com/wp/wp2208679.jpg" class="d-block w-100 img" alt="..."></blink>
+            </div>
+            <div class="carousel-item">
+                <blink><img src="https://wallpapercave.com/wp/wp3276869.jpg " class="d-block w-100 img" alt="...">
+                </blink>
+            </div>
+            <div class="carousel-item">
+                <blink> <img src="https://wallpapercave.com/wp/wp2382721.jpg" class="d-block w-100 img" alt="..."></blink>
+            </div>
+        </div>
+    </div>
+</section>{% endblock body %}
